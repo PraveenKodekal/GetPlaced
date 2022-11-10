@@ -14,6 +14,7 @@ import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
@@ -53,8 +54,17 @@ public class CustomRestExceptionHandler extends ResponseEntityExceptionHandler {
 		return new ResponseEntity<Object>(customErrorDetails, HttpStatus.BAD_REQUEST);
 	}
 	
-	
-	
+	@Override
+	protected ResponseEntity<Object> handleMissingServletRequestParameter(
+			MissingServletRequestParameterException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
+
+		CustomErrorDetails customErrorDetails = new CustomErrorDetails(new Date(),
+				"Rest Exceptions from MissingServletRequestParameterException from handler", ex.getMessage());
+
+		return new ResponseEntity<Object>(customErrorDetails, HttpStatus.BAD_REQUEST);
+	}
+
+	//IncorrectResultSizeDataAccessException
 	
 	
 	
@@ -91,5 +101,7 @@ public class CustomRestExceptionHandler extends ResponseEntityExceptionHandler {
 		
 		
 	}
+	
+	
 
 }

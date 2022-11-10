@@ -9,7 +9,7 @@ public class GetPlacedApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(GetPlacedApplication.class, args);
-		
+		System.out.println("Please Get Placed Soon ");
 	}
 
 }

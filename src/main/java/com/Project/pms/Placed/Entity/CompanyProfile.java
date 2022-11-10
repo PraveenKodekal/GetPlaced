@@ -1,3 +1,4 @@
+
 package com.Project.pms.Placed.Entity;
 
 import javax.persistence.Entity;
@@ -6,7 +7,9 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
 @Entity
+@XmlRootElement
 public class CompanyProfile {
 	
 	@Id
@@ -15,11 +18,11 @@ public class CompanyProfile {
 	private String companyName;
 	@NotNull
 	private String companyLocation;
-	/*
-	 * @Positive
-	 * 
-	 * @Size(min=40,max=100)
-	 */	private double eligiblePercentage;
+	
+	 @Positive
+	 
+	
+	private double eligiblePercentage;
 	@NotBlank
 	private String eligibleBranches;
 	@NotNull

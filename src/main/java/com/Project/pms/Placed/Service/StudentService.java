@@ -1,6 +1,7 @@
 package com.Project.pms.Placed.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.Project.pms.Placed.Entity.StudentProfile;
 import com.Project.pms.Placed.Repository.StudentRepository;
@@ -21,29 +22,30 @@ public class StudentService {
 	}
 	
 	
-	public StudentProfile studentDetailsByRegNo(String studentRegNo) {
-		
-		StudentProfile studentProfile=studentRepository.findBystudentRegNo(studentRegNo);
-		return studentProfile;
+	public List<StudentProfile> getStudentsAll(){
+		return studentRepository.findAll();
 	}
 	
 	
-	public StudentProfile studentLoginByMobile(long studentMobile) {
-		StudentProfile studentProfile=studentRepository.findBystudentMobile(studentMobile);
-		return studentProfile;
+	public Optional<StudentProfile> studentById(String studentRegNo) {
+		return studentRepository.findById(studentRegNo);
+	}
+//	
+//	public StudentProfile getByPercentage(double studentPercentage) {
+//		return studentRepository.findByLessThan(studentPercentage);
+//	}
+	
+	public List<StudentProfile> allStudentList(){
+		return studentRepository.getAllStudentProfile();
 	}
 	
-	public StudentProfile findStudentBypercentage(double studentPercentage) {
-		StudentProfile studentProfile= studentRepository.findBystudentPercentage(studentPercentage);
-		return studentProfile;
+	public List<StudentProfile> studentPercentage(double studentPercentage){
+		return studentRepository.getStudentProfileBystudentPercentage(studentPercentage);
 	}
 	
-	public StudentProfile findStudentBranch(String studentBranch) {
-		StudentProfile studentProfile= studentRepository.findBystudentBranch(studentBranch);
-			return studentProfile;
-		
+	public StudentProfile getStudentId(String studentRegNo) {
+		return studentRepository.findBystudentRegNo(studentRegNo);
 	}
-	
-	
-	
 }
+
+

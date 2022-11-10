@@ -11,10 +11,12 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import org.hibernate.annotations.NotFound;
 
 @Entity
+@XmlRootElement
 public class StudentProfile {
 	
 	@Id

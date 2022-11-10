@@ -21,12 +21,11 @@ public class CompanyService {
 		return companyRepository.findAll();
 	}
 	
-	public CompanyProfile companyListById(String companyId) {
+	public CompanyProfile loginWithcompanyId(String companyId) {
 		return companyRepository.findBycompanyId(companyId);
 	}
 	
-	public CompanyProfile getCompanyById(String companyId) {
-		return companyRepository.getBycompanyId(companyId);
+	public CompanyProfile getByPercentage(double eligiblePercentage) {
+		return companyRepository.findByeligiblePercentage(eligiblePercentage);
 	}
-
 }
